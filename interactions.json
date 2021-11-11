@@ -1,0 +1,14 @@
+[
+  {
+    "name": "stats",
+    "description": "View statistics for a radio station!",
+    "options": [
+      {
+        "type": 3,
+        "name": "radio",
+        "description": "Which radio are you trying to view?",
+        "required": true
+      }
+    ]
+  }
+]
