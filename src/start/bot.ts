@@ -10,8 +10,7 @@ const client = new Client({
   partials: []
 } as BotOptions);
 
-
-client.logger = debug(`RoyaliTEA`);
+client.logger = debug("RoyaliTEA");
 
 client.start();
 

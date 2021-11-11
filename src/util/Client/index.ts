@@ -21,7 +21,6 @@ export class Client extends Discord.Client implements Bot {
   shard: Shard = this.shard;
   handlers;
 
-
   events = new Discord.Collection<string, any>();
   aliases = new Discord.Collection<string, any>();
   commands = new Discord.Collection<string, any>();

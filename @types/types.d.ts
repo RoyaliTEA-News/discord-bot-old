@@ -75,7 +75,6 @@ declare global {
     run(...args: any): void;
   }
 
-
   interface Msg extends Message { }
   interface InteractionResponse extends CommandInteraction { }
 
