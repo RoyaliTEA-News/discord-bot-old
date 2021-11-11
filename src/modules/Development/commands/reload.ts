@@ -6,7 +6,7 @@ export = {
   description: "a",
   aliases: [],
   permissions: {
-    user: "506899274748133376"
+    user: ["506899274748133376", "695608126602477629"]
   },
   hidden: true,
   async execute(data: Msg, client: Bot) {

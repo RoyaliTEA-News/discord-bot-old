@@ -11,8 +11,8 @@ export = {
 		client.statcord = new Statcord.Client({
 			key: process.env.STATCORD,
 			client,
-			postCpuStatistics: false,
-			postMemStatistics: false,
+			postCpuStatistics: true,
+			postMemStatistics: true,
 			postNetworkStatistics: false
 		});
 

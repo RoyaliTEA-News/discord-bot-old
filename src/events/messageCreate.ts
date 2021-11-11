@@ -1,4 +1,4 @@
-import { Message, MessageEmbed } from "discord.js";
+import { Message } from "discord.js";
 
 export = {
 	name: "messageCreate",
@@ -15,7 +15,7 @@ export = {
 		if (!command) return;
 
 		if (command.permissions) {
-			if (command.permissions.user && message.author.id !== command.permissions.user) return noPermission();
+			if (command.permissions.user && command.permissions.user.includes(message.author.id)) return noPermission();
 			if (command.permissions.guild && message.guildId !== command.permissions.guild) return noPermission();
 			if (command.permissions.permission && !message.member.permissions.has(command.permissions.permission)) return noPermission();
 			if (command.permissions.role && !message.member.roles.cache.find(x => x.id === command.permissions.role)) return noPermission();

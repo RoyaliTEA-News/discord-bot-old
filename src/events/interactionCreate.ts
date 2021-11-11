@@ -11,7 +11,7 @@ export = {
       if (!command) return interaction.reply({ content: "That command has not yet been setup!", ephemeral: true });
 
       if (command.permissions) {
-        if (command.permissions.user && response.user.id !== command.permissions.user) return noPermission(interaction);
+        if (command.permissions.user && command.permissions.user.includes(response.user.id)) return noPermission(interaction);
         if (command.permissions.guild && response.guildId !== command.permissions.guild) return noPermission(interaction);
 
         if (response.inGuild()) {

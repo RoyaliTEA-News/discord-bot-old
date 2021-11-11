@@ -63,7 +63,7 @@ declare global {
     permissions?: {
       role?: string;
       guild?: string;
-      user?: string;
+      user?: string[];
       permission?: PermissionResolvable;
     };
     execute(data: InteractionResponse | Message, client: Bot, args?: string[]): Promise<any> | any;
