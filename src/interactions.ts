@@ -17,6 +17,11 @@ export const commands = [
       .setDescription("Which radio are you trying to play?")
       .setRequired(true)
     )
+    .addStringOption(x => x
+      .setName("mount")
+      .setDescription("Select a mount point! If none is provided, the default mountpoint will be chosen.")
+      .setRequired(false)
+    )
 ];
 
 export const context = [

@@ -20,6 +20,12 @@
         "name": "radio",
         "description": "Which radio are you trying to play?",
         "required": true
+      },
+      {
+        "type": 3,
+        "name": "mount",
+        "description": "Select a mount point! If none is provided, the default mountpoint will be chosen.",
+        "required": false
       }
     ]
   }
