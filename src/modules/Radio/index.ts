@@ -15,40 +15,40 @@ export const updateRadios = () => {
 
     await collection.findOneAndUpdate(
       { id: radio.id },
-      { $set: { ...radio, lowerName: radio.name.toLowerCase() } },
+      { $set: { ...radio, lowerName: radio.name.toLowerCase(), lowerAliases: radio.aliases?.map(x => x.toLowerCase()) || [] } },
       { upsert: true }
     );
   })
 };
 
 export const getStats = async (radio) => {
-  const { data: stats } = await axios(radio.api.endpoint);
+  const { data: stats } = await axios(radio.api.endpoint),
+    api = radio.api;
 
-  if (radio.api.type === "azuracast") return {
+  let res;
+
+  if (radio.api.type === "azuracast") res = {
     presenter: stats.live.is_live ? stats.live.streamer_name : "AutoDJ",
     listeners: stats.listeners.total,
     song: {
       title: stats.now_playing.song.title,
       artist: stats.now_playing.song.artist,
-      art: stats.now_playing.song.art
+      art: false
     }
   }
 
-  if (radio.api.type === "custom") {
-    const api = radio.api,
-      res = {
-        presenter: scan.get(stats, api.presenter),
-        listeners: scan.get(stats, api.listeners),
-        song: {
-          title: scan.get(stats, api.song),
-          artist: scan.get(stats, api.artist),
-          art: false
-        }
-      },
-      { data: xonosInfo } = await axios(`https://xonos.tools/lookup?type=song&songName=${encodeURI(res.song.title)}&artistName=${encodeURI(res.song.artist)}`);
-
-    res.song.art = xonosInfo.result.covers.medium;
-
-    return res;
+  if (radio.api.type === "custom") res = {
+    presenter: scan.get(stats, api.presenter),
+    listeners: scan.get(stats, api.listeners),
+    song: {
+      title: scan.get(stats, api.song),
+      artist: scan.get(stats, api.artist),
+      art: false
+    }
   }
+
+  const { data: xonosInfo } = await axios(`https://xonos.tools/lookup?type=song&songName=${encodeURI(res.song.title)}&artistName=${encodeURI(res.song.artist)}`);
+  res.song.art = xonosInfo.result.covers.medium;
+
+  return res;
 }
