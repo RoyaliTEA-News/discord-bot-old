@@ -1,4 +1,6 @@
-import { updateRadios } from "../";
+import { MessageEmbed } from "discord.js";
+
+import { getStats, updateRadios } from "../";
 
 export = {
   name: "stats",
@@ -13,10 +15,17 @@ export = {
 
     console.log(input)
 
-    if(!radio) return data.reply({ content: `A radio with the name \`${input}\` was not found!`, ephemeral: true });
+    if (!radio) return data.reply({ content: `A radio with the name \`${input}\` was not found!`, ephemeral: true });
 
-    console.log(radio)
+    const stats = await getStats(radio);
 
-    data.reply({ content: "radio found", ephemeral: true });
+    console.log(stats);
+    const embed = new MessageEmbed()
+      .setTitle(`🎵 ${radio.name}`)
+      .setThumbnail(stats.song.art)
+      .setDescription(`**${stats.presenter}** is currently streaming to **${stats.listeners} listeners**.`)
+      .addField("Currently Playing", `**${stats.song.title}** by **${stats.song.artist}**`)
+
+    data.reply({ embeds: [embed], ephemeral: true });
   }
 } as Command;
