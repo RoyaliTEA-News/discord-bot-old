@@ -1886,6 +1886,11 @@ object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
   integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
 
+object-search@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/object-search/-/object-search-0.0.5.tgz#ed93f4e51a316d51e7f4be4d5573ce7a567996bf"
+  integrity sha1-7ZP05RoxbVHn9L5NVXPOelZ5lr8=
+
 omggif@^1.0.10, omggif@^1.0.9:
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/omggif/-/omggif-1.0.10.tgz#ddaaf90d4a42f532e9e7cb3a95ecdd47f17c7b19"

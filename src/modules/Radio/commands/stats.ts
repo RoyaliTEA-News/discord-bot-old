@@ -17,15 +17,14 @@ export = {
 
     if (!radio) return data.reply({ content: `A radio with the name \`${input}\` was not found!`, ephemeral: true });
 
-    const stats = await getStats(radio);
+    const stats = await getStats(radio),
+      embed = new MessageEmbed()
+        .setTitle(`🎵 ${radio.name}`)
+        .setColor("#2f3136")
+        .setThumbnail(stats.song.art)
+        .setDescription(`**${stats.presenter}** is currently streaming to **${stats.listeners} listeners**.`)
+        .addField("Currently Playing", `**${stats.song.title}** by **${stats.song.artist}**`)
 
-    console.log(stats);
-    const embed = new MessageEmbed()
-      .setTitle(`🎵 ${radio.name}`)
-      .setThumbnail(stats.song.art)
-      .setDescription(`**${stats.presenter}** is currently streaming to **${stats.listeners} listeners**.`)
-      .addField("Currently Playing", `**${stats.song.title}** by **${stats.song.artist}**`)
-
-    data.reply({ embeds: [embed], ephemeral: true });
+    data.reply({ embeds: [embed] });
   }
 } as Command;

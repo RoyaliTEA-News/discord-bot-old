@@ -1,5 +1,6 @@
 import axios from "axios";
 import { readdirSync } from "fs";
+import scan from "object-search";
 
 import client from "../../start/bot";
 
@@ -27,21 +28,23 @@ export const getStats = async (radio) => {
     presenter: stats.live.is_live ? stats.live.streamer_name : "AutoDJ",
     listeners: stats.listeners.total,
     song: {
-      name: stats.now_playing.song.title,
+      title: stats.now_playing.song.title,
       artist: stats.now_playing.song.artist,
-      cover: stats.now_pplaying.song.art
+      art: stats.now_playing.song.art
     }
   }
 
   if (radio.api.type === "custom") {
     const api = radio.api;
 
-    console.log(api)
-
     return {
-      presenter: stats[api.presenter],
-      listeners: stats[api.listeners],
-      song: stats[api.song]
+      presenter: scan.get(stats, api.presenter),
+      listeners: scan.get(stats, api.listeners),
+      song: {
+        title: scan.get(stats, api.song),
+        artist: scan.get(stats, api.artist),
+        art: scan.get(stats, api.art)
+      }
     }
   }
 }

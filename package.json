@@ -27,6 +27,7 @@
 		"moment": "^2.29.1",
 		"mongodb": "4.1.4",
 		"node-vibrant": "^3.2.1-alpha.1",
+		"object-search": "^0.0.5",
 		"opusscript": "^0.0.8",
 		"statcord.js": "^3.3.0",
 		"supports-color": "^9.0.2",
