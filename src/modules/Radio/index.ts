@@ -35,16 +35,20 @@ export const getStats = async (radio) => {
   }
 
   if (radio.api.type === "custom") {
-    const api = radio.api;
+    const api = radio.api,
+      res = {
+        presenter: scan.get(stats, api.presenter),
+        listeners: scan.get(stats, api.listeners),
+        song: {
+          title: scan.get(stats, api.song),
+          artist: scan.get(stats, api.artist),
+          art: false
+        }
+      },
+      { data: xonosInfo } = await axios(`https://xonos.tools/lookup?type=song&songName=${encodeURI(res.song.title)}&artistName=${encodeURI(res.song.artist)}`);
 
-    return {
-      presenter: scan.get(stats, api.presenter),
-      listeners: scan.get(stats, api.listeners),
-      song: {
-        title: scan.get(stats, api.song),
-        artist: scan.get(stats, api.artist),
-        art: scan.get(stats, api.art)
-      }
-    }
+    res.song.art = xonosInfo.result.covers.medium;
+
+    return res;
   }
 }
