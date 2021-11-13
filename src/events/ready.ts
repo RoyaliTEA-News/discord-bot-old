@@ -1,5 +1,7 @@
 import Statcord from "statcord.js";
 
+import { updateRadios } from "../modules/Radio";
+
 export = {
 	name: "ready",
 	type: "client",
@@ -7,6 +9,8 @@ export = {
 		client.success(`Connected. (${client.guilds.cache.size} Guilds)`);
 		client.updateStatus();
 		setInterval(client.updateStatus, 15000);
+
+		updateRadios();
 
 		client.statcord = new Statcord.Client({
 			key: process.env.STATCORD,

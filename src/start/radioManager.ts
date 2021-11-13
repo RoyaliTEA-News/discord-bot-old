@@ -1,4 +1,5 @@
-import dl from "./downloadRepo";
+import { exec } from "child_process";
+import dl from "download-git-repo";
 
 export const load = async () => {
   setInterval(download, 60000 * 10);
@@ -6,7 +7,9 @@ export const load = async () => {
 };
 
 function download() {
-  dl("direct:https://github.com/RoyaliTEA-News/radios", `${process.cwd()}/radios/`, { clone: true }, () => { return });
+  exec("yarn removeRadios", () => {
+    dl("direct:https://github.com/RoyaliTEA-News/radios", `${process.cwd()}/radios/`, { clone: true }, () => { return });
+  })
 }
 
 export default load;
