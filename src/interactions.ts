@@ -7,7 +7,15 @@ export const commands = [
     .addStringOption(x => x
       .setName("radio")
       .setDescription("Which radio are you trying to view?")
-      .setRequired(true) 
+      .setRequired(true)
+    ),
+  new SlashCommandBuilder()
+    .setName("play")
+    .setDescription("Stream a radio station in a voice or stage channel!")
+    .addStringOption(x => x
+      .setName("radio")
+      .setDescription("Which radio are you trying to play?")
+      .setRequired(true)
     )
 ];
 

@@ -10,5 +10,17 @@
         "required": true
       }
     ]
+  },
+  {
+    "name": "play",
+    "description": "Stream a radio station in a voice or stage channel!",
+    "options": [
+      {
+        "type": 3,
+        "name": "radio",
+        "description": "Which radio are you trying to play?",
+        "required": true
+      }
+    ]
   }
 ]
