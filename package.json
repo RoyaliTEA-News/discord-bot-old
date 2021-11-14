@@ -40,7 +40,7 @@
 		"@typescript-eslint/parser": "^5.3.1",
 		"eslint": "^8.2.0",
 		"rimraf": "^3.0.2",
-		"typescript": "^4.5.0-dev.20211101"
+		"typescript": "^4.5.1-rc"
 	},
 	"author": "Callum OKane",
 	"license": "MPL-2.0"
