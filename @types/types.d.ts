@@ -28,11 +28,9 @@ declare global {
     success(message: string | number): void;
 
     updateStatus?(): Promise<void>;
-    fetchUses?(bot: Bot, cmd: Command): Promise<string>;
     executeCommand?(command: Command, data: InteractionResponse | Message, client: Bot, args?: string[]): void | Promise<void>;
     genString?(length: number): string;
     getMember?(data: InteractionResponse, args: string[]): Promise<GuildMember>;
-    getGuildConfig?(guildId: string): Promise<GuildConfig>;
   }
 
   interface BotOptions extends ClientOptions {
@@ -77,5 +75,4 @@ declare global {
 
   interface Msg extends Message { }
   interface InteractionResponse extends CommandInteraction { }
-
 }

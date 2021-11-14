@@ -1,6 +1,4 @@
-import { MessageActionRow, MessageButton, MessageEmbed } from "discord.js";
-
-import { getStats, updateRadios } from "../";
+import { updateRadios } from "../";
 
 export = {
   name: "play",
