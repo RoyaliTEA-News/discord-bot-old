@@ -43,6 +43,7 @@ declare global {
     prefix: string;
     database: string;
     clientId: string;
+    newsChannels: string[];
   }
 
   interface category {
