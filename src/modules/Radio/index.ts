@@ -13,8 +13,6 @@ export const updateRadios = () => {
     const file = require(`${process.cwd()}/radios/services/${x.name}`),
       radio = await file();
 
-    console.log(radio.name)
-
     await collection.findOneAndUpdate(
       { id: radio.id },
       { $set: { ...radio, lowerName: radio.name.toLowerCase(), lowerAliases: radio.aliases?.map(x => x.toLowerCase()) || [] } },
