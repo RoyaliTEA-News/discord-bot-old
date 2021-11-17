@@ -19,9 +19,10 @@ export = {
         count = (await collection.count()) + 1;
 
       await collection.insertOne({
-        ticketId: count,
+        articleId: count,
         messageId: data.d.message_id,
-        creator: data.d.member_id
+        authorId: data.d.member_id,
+        channelId: data.d.channel_id
       });
 
       const thread = await message.startThread({ name: `Thread ${count}` }),
