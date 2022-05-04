@@ -1,0 +1,17 @@
+[
+  {
+    "name": "ping",
+    "description": "Check the ping.",
+    "options": []
+  },
+  {
+    "name": "invite",
+    "description": "Invite our bot to your discord server.",
+    "options": []
+  },
+  {
+    "name": "website",
+    "description": "Get a link to our website.",
+    "options": []
+  }
+]
