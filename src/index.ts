@@ -1,6 +1,7 @@
 import "dotenv/config";
 
 import { exec } from "child_process";
+import dl from "download-git-repo";
 import { writeFileSync } from "fs";
 
 import { updateInteractions } from "./interactions";
@@ -30,6 +31,16 @@ exec("yarn outdated", async (err, stdout) => {
 
       writeFileSync(`${process.cwd()}/package.json`, JSON.stringify(packages, null, 2));
     });
+  }
+
+
+  setInterval(download, 60000 * 10);
+  download();
+
+  function download() {
+    exec("yarn removeRadios", () => {
+      dl("direct:https://github.com/RoyaliTEA-News/radios", `${process.cwd()}/radios/`, { clone: true }, () => { return });
+    })
   }
 
   await updateInteractions();

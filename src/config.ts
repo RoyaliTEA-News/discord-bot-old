@@ -5,6 +5,9 @@ const config: ClientConfig = {
     database: "RoyaliTEA",
     channels: {
       verify: ""
+    },
+    roles: {
+      verified: ""
     }
   } : {
     token: process.env.TOKEN_DEV,
@@ -12,6 +15,9 @@ const config: ClientConfig = {
     database: "RoyaliTEA-Dev",
     channels: {
       verify: "971140784340475936"
+    },
+    roles: {
+      verified: ""
     }
   })
 };

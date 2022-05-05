@@ -14,6 +14,7 @@ class Client extends Base {
   readonly config: ClientConfig = require("../../config");
 
   db: Db;
+  radios = [];
 
   database = new DatabaseManager();
   modules = new ModuleManager(this);

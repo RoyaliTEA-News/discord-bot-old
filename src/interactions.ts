@@ -51,6 +51,29 @@ export const commands = [
   new SlashCommandBuilder()
     .setName("website")
     .setDescription("Get a link to our website."),
+  new SlashCommandBuilder()
+    .setName("play")
+    .setDescription("Stream a radio station in a voice or stage channel!")
+    .addStringOption(x => x
+      .setName("radio")
+      .setDescription("Which radio are you trying to play?")
+      .setRequired(true)
+      .setAutocomplete(true)
+    )
+    .addStringOption(x => x
+      .setName("mount")
+      .setDescription("Select a mount point! If none is provided, the default mountpoint will be chosen.")
+      .setRequired(false)
+    ),
+  new SlashCommandBuilder()
+    .setName("stats")
+    .setDescription("View statistics for a specific radio!")
+    .addStringOption(x => x
+      .setName("radio")
+      .setDescription("Which radio are you trying to view?")
+      .setRequired(true)
+      .setAutocomplete(true)
+    )
 ];
 
 export const context = [

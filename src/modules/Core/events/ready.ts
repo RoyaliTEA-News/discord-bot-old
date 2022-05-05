@@ -1,11 +1,15 @@
 import { MessageActionRow, MessageButton, MessageEmbed, TextChannel } from "discord.js";
 
+import { updateRadios } from "../../Radio";
+
 export = {
   name: "ready",
   execute(client) {
     client.logger.info(`Logged in as ${client.user.tag}!`);
 
-    function sendVerifyEmbed(self, reSend) {
+    updateRadios();
+
+    function sendVerifyEmbed(reSend) {
       const channel: TextChannel = client.channels.cache.get(client.config.channels.verify);
 
       if (channel)
@@ -34,6 +38,6 @@ export = {
         });
     }
 
-    sendVerifyEmbed(sendVerifyEmbed, false);
+    sendVerifyEmbed(false);
   }
 }

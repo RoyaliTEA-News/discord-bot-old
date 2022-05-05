@@ -9,7 +9,8 @@
     "compile": "yarn --silent && rimraf dist && tsc",
     "compileLive": "rimraf dist && tsc",
     "dev": "yarn compile && yarn start",
-    "commit": "git add . && git commit"
+    "commit": "git add . && git commit",
+    "removeRadios": "rimraf radios"
   },
   "dependencies": {
     "@discordjs/builders": "^0.13.0",
@@ -20,10 +21,13 @@
     "canvas": "^2.9.1",
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0",
+    "download-git-repo": "^3.0.2",
     "erlpack": "^0.1.4",
+    "langs": "^2.0.0",
     "libsodium-wrappers": "^0.7.10",
     "moment": "^2.29.3",
     "mongodb": "^4.5.0",
+    "object-search": "^0.0.5",
     "opusscript": "^0.0.8",
     "supports-color": "^9.2.2",
     "tweetnacl": "^1.0.3",
